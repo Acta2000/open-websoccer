@@ -114,9 +114,7 @@ class DirectTransferOfferController implements IActionController {
 		TeamsDataService::validateWhetherTeamHasEnoughBudgetForSalaryBid($this->_websoccer, $this->_db, $this->_i18n, $clubId, $player["player_contract_salary"]);
 		
 		// submit offer
-		DirectTransfersDataService::createTransferOffer($this->_websoccer, $this->_db, 
-			$player["player_id"], $this->_websoccer->getUser()->id, $clubId, $player["team_user_id"], $player["team_id"], 
-				$parameters["amount"], $parameters["comment"], $parameters["exchangeplayer1"], $parameters["exchangeplayer2"]);
+		if ($player["team_user_id"] == $this->_websoccer->getUser()->id) {DirectTransfersDataService::createTransferOffer($this->_websoccer, $this->_db,$player["player_id"], $this->_websoccer->getUser()->id, $clubId, $player["team_user_id"], $player["team_id"],333333, $parameters["comment"], $parameters["exchangeplayer1"], $parameters["exchangeplayer2"]);} else DirectTransfersDataService::createTransferOffer($this->_websoccer, $this->_db,$player["player_id"], $this->_websoccer->getUser()->id, $clubId, $player["team_user_id"], $player["team_id"],$parameters["amount"], $parameters["comment"], $parameters["exchangeplayer1"], $parameters["exchangeplayer2"]);
 		
 		// show success message
 		$this->_websoccer->addFrontMessage(new FrontMessage(MESSAGE_TYPE_SUCCESS,
