@@ -148,6 +148,27 @@ class BankAccountDataService {
 	
 	private static function createTransaction(WebSoccer $websoccer, DbConnection $db, $team, $teamId, $amount, $subject, $sender) {
 		
+		//Teams mit Namen U23 oder # erhalten keine Einnahmen/Ausgaben aus Spielen
+
+		if ($team != str_replace(array('U23','#'), "",$team))  {
+ 
+ if ($subject =='match_sponsorpayment_subject') {
+ return;
+ }
+ if ($subject =='match_salarypayment_subject') {
+ return;
+ }
+ if ($subject =='match_ticketrevenue_subject') {
+ return;
+ }
+ if ($subject =='stadiumenvironment_matchincome_subject') {
+ return;
+ }
+ if ($subject =='stadiumenvironment_costs_per_match_subject') {
+ return;
+ }
+}
+		
 		// ignore transaction if team is without user and option is enabled
 		if (!$team["user_id"] && $websoccer->getConfig("no_transactions_for_teams_without_user")) {
 			return;
