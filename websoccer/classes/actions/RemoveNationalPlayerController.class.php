@@ -64,10 +64,10 @@ class RemoveNationalPlayerController implements IActionController {
 		}
 		
 		// check if from same nation. If not, user most probably tries to cheat, hence i18n not important.
-		if ($player["nation"] != $team["name"]) {
+		/*if ($player["nation"] != $team["name"]) {
 			throw new Exception("Player is from different nation.");
 		}
-		
+		*/
 		
 		// remove from team team
 		$this->_db->queryDelete($this->_websoccer->getConfig("db_prefix") . "_nationalplayer", "player_id = %d AND team_id = %d", 
