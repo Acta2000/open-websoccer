@@ -58,9 +58,9 @@ class DirectTransferOfferController implements IActionController {
 		}
 		
 		// check if player is already in one of user's teams
-		if ($player["team_user_id"] == $this->_websoccer->getUser()->id) {
+		/*if ($player["team_user_id"] == $this->_websoccer->getUser()->id) {
 			throw new Exception($this->_i18n->getMessage("transferoffer_err_ownplayer"));
-		}
+		} */
 			
 		// check if player is unsellable or already on transfer market
 		if ($player["player_unsellable"] || $player["player_transfermarket"]) {
@@ -111,7 +111,7 @@ class DirectTransferOfferController implements IActionController {
 		}
 		
 		// check if club can pay this salary
-		TeamsDataService::validateWhetherTeamHasEnoughBudgetForSalaryBid($this->_websoccer, $this->_db, $this->_i18n, $clubId, $player["player_contract_salary"]);
+		// TeamsDataService::validateWhetherTeamHasEnoughBudgetForSalaryBid($this->_websoccer, $this->_db, $this->_i18n, $clubId, $player["player_contract_salary"]);
 		
 		// submit offer
 		if ($player["team_user_id"] == $this->_websoccer->getUser()->id) {DirectTransfersDataService::createTransferOffer($this->_websoccer, $this->_db,$player["player_id"], $this->_websoccer->getUser()->id, $clubId, $player["team_user_id"], $player["team_id"],333333, $parameters["comment"], $parameters["exchangeplayer1"], $parameters["exchangeplayer2"]);} else DirectTransfersDataService::createTransferOffer($this->_websoccer, $this->_db,$player["player_id"], $this->_websoccer->getUser()->id, $clubId, $player["team_user_id"], $player["team_id"],$parameters["amount"], $parameters["comment"], $parameters["exchangeplayer1"], $parameters["exchangeplayer2"]);
