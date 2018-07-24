@@ -113,7 +113,7 @@ class DirectTransferAcceptController implements IActionController {
 		}
 		
 		// check if user can afford player
-		$minBudget = 40 * $player["player_contract_salary"];
+		$minBudget = 0 * $player["player_contract_salary"];
 		if ($teamBudget < $minBudget) {
 			throw new Exception($this->_i18n->getMessage("transferoffer_accept_err_exchangeplayer_salarytoohigh", $playerName));
 		}
