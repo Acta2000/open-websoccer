@@ -85,7 +85,7 @@ class BorrowPlayerController implements IActionController {
 		// check if team can pay fee and salary
 		$fee = $parameters["matches"] * $player["lending_fee"];
 		// team should have the money for at least 5 matches to pay him
-		$minBudget = $fee + 5 * $player["player_contract_salary"];
+		$minBudget = 0;
 		$team = TeamsDataService::getTeamSummaryById($this->_websoccer, $this->_db, $clubId);
 		if ($team["team_budget"] < $minBudget) {
 			throw new Exception($this->_i18n->getMessage("lending_hire_err_budget_too_low"));
