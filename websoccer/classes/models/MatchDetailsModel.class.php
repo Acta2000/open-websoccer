@@ -59,6 +59,14 @@ class MatchDetailsModel implements IModel {
 			throw new Exception($this->_i18n->getMessage(MSG_KEY_ERROR_PAGENOTFOUND));
 		}
 		
+$stadionid = '$match['match.stadium_id']';
+$adatei = "Fangesang";
+$adateipruef = array ( '1', '2', '3', '17');
+if (in_array($stadionid, $adateipruef)) {
+$adatei = $stadionid; 
+}
+		
+		
 		$allowTacticChanges = FALSE;
 		
 		$reportmessages = array();
@@ -88,7 +96,7 @@ class MatchDetailsModel implements IModel {
 			}
 		}
 		
-		return array('match' => $match, 'reportmessages' => $reportmessages, 'allowTacticChanges' => $allowTacticChanges,
+		return array('match' => $match,'adatei' => $adatei, 'reportmessages' => $reportmessages, 'allowTacticChanges' => $allowTacticChanges,
 				'homeStrikerMessages' => $homeStrikerMessages, 'guestStrikerMessages' => $guestStrikerMessages);
 	}
 	
