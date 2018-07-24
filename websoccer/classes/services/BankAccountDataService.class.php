@@ -108,6 +108,9 @@ class BankAccountDataService {
 			throw new Exception("team not found: " . $teamId);
 		}
 		
+		//Kein Geld für Verschiebungen 1 zu 2
+		if ($amount == 333333) {
+		return; }
 		if ($amount < 0) {
 			throw new Exception("amount illegal: " . $amount);
 		} else {
