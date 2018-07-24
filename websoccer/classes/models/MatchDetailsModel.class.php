@@ -58,7 +58,8 @@ class MatchDetailsModel implements IModel {
 		if (!isset($match['match_id'])) {
 			throw new Exception($this->_i18n->getMessage(MSG_KEY_ERROR_PAGENOTFOUND));
 		}
-$stadionid = $match['match.stadium_id'];
+
+$stadionid = $match['match_stadium_id'];
 $adatei = "Fangesang";
 $adateipruef = array ( '1', '2', '3', '17');
 if (in_array($stadionid, $adateipruef)) {
