@@ -119,6 +119,7 @@ class MatchesDataService {
 		if ($loadStadiumInfo) {
 			$fromTable .= ' LEFT JOIN '. $websoccer->getConfig('db_prefix') . '_stadion AS S ON  S.id = IF(M.stadion_id IS NOT NULL, M.stadion_id, HOME.stadion_id)';
 			$columns['S.name'] = 'match_stadium_name';
+			$columns['S.id'] = 'match_stadium_id';
 		}
 		
 		if ($loadSeasonInfo) {
