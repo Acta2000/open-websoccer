@@ -5,6 +5,18 @@
 
 {% block page_title %}
 {{ match.match_home_name }} - {{ match.match_guest_name }}
+{% if not match.match_simulated %}
+<br><audio style="width:100%;" id="audio_with_controls" 
+  controls
+  loop
+  autoplay
+  volume="0.4"
+  src="https://link-zur-datei/{{adatei}}.mp3" 
+  type="audio/mp3" 
+>
+	   Ihr Browser kann dieses Tondokument nicht wiedergeben.<br>
+</audio>
+{% endif %}
 {% endblock %}
 
 {% block page_content %}
