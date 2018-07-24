@@ -423,7 +423,7 @@ class SimulationPlayer {
     private function looseFreshness() {
     	$freshness = $this->strengthFreshness - 1;
     	
-    	if ($this->age > 32 && $this->position != PLAYER_POSITION_GOALY) {
+    	if ($this->age > 45 && $this->position != PLAYER_POSITION_GOALY) {
     		$freshness -= 1;
     	}
     	
