@@ -51,7 +51,6 @@ class DirectTransferOfferModel implements IModel {
 		
 		// is player seallable and is playing in a team with a manager; and is not borrowed
 		return (!$this->_player["player_unsellable"] && $this->_player["team_user_id"] > 0 
-				&& $this->_player["team_user_id"] !== $this->_websoccer->getUser()->id
 				&& !$this->_player["player_transfermarket"]
 				&& $this->_player["lending_owner_id"] == 0);
 	}
